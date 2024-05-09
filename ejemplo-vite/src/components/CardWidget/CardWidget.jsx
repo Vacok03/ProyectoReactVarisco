@@ -1,6 +1,6 @@
 
 
-const CardWidget = () => {
+export const CardWidget = () => {
   return (
     <div>
       <span> 🛒 </span>
@@ -9,4 +9,3 @@ const CardWidget = () => {
   )
 }
 
-export default CardWidget

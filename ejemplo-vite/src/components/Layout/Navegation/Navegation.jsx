@@ -1,11 +1,11 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import styles from "./Navigation.module.css";
+import styles from "./Navegation.module.css";
 import canosur from "../../../assets/canosur.png"
-import { CartWidget } from "../../CartWidget/CartWidget";
+import { CardWidget } from "../../CardWidget/CardWidget";
 
-export const Navigation = () => {
+export const Navegation = () => {
   return (
     <Navbar bg="light" data-bs-theme="light">
       <Container>
@@ -18,7 +18,7 @@ export const Navigation = () => {
           <Nav.Link href="#pricing">Pricing</Nav.Link>
         </Nav>
       </Container>
-      <CartWidget />
+      <CardWidget />
     </Navbar>
   );
 };

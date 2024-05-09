@@ -1,17 +1,13 @@
-import { Footer } from "./Footer/Footer"
-import { Navbar } from "./Navbar/Navbar"
+/* eslint-disable react/prop-types */
+import { Footer } from "./Footer/Footer";
+import { Navegation } from "./Navegation/Navegation";
 
-
-
-export const Layout = ({children}) => {
+export const Layout = ({ children }) => {
   return (
     <div>
-    <Navbar/>
-    <div>
-      {children}
+      <Navegation />
+      <div>{children}</div>
+      <Footer />
     </div>
-    <Footer/>
-    </div>
-  )
-}
-
+  );
+};
