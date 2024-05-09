@@ -4,6 +4,8 @@ import Navbar from "react-bootstrap/Navbar";
 import styles from "./Navegation.module.css";
 import canosur from "../../../assets/canosur.png"
 import { CardWidget } from "../../CardWidget/CardWidget";
+import { Link, NavLink } from "react-router-dom";
+
 
 export const Navegation = () => {
   return (
@@ -12,10 +14,12 @@ export const Navegation = () => {
         <Navbar.Brand href="#home">
           <img src={canosur} alt="" className={styles.navbar__logo} />
         </Navbar.Brand>
-        <Nav className="me-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
+        <Nav className="me-auto gap-3">
+          <Link to="/">Home</Link>
+          <Link to="/category/Gas">Gas</Link>
+          <Link to="/category/Cloaca">Cloaca</Link>
+          <Link to="/category/Agua">Agua</Link>
+          <Link to="/cart">Cart</Link>
         </Nav>
       </Container>
       <CardWidget />

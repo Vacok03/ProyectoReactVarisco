@@ -1,29 +1,39 @@
 import { useEffect, useState } from 'react';
 import styles from './ItemListContainer.module.css';
-import { getProducts } from '../../utils/MokeData';
-import { ItemList }  from '../ItemList/ItemList';
+import { ItemList } from '../ItemList/ItemList';
 import spinnerImage from '../Spinner/spinner.gif';
-import { usePaginate } from "../../Hooks/usePaginate"; // Importa el hook de paginación
+import { usePaginate } from "../../Hooks/usePaginate";
+import { products, getProductByCategory } from "../../utils/MokeData"; // Importa tus productos y la función de filtro por categoría
+import { useParams } from 'react-router-dom';
 
 export const ItemListContainer = (props) => {
- 
-  const [products, setProducts] = useState([]);
+
   const [loading, setLoading] = useState(true);
-  const { currentPage, totalPages, nextPage, prevPage, paginate, totalPagesArray, currentData } = usePaginate(products, 2); // Utiliza el hook de paginación
+  const [filteredProducts, setFilteredProducts] = useState([]); // Nuevo estado para los productos filtrados
+  const { currentPage, totalPages, nextPage, prevPage, paginate, totalPagesArray, currentData } = usePaginate(filteredProducts, 2);
+  const { categoryId } = useParams();
 
   useEffect(() => {
-    getProducts()
-      .then((res) => {
-        setProducts(res);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
-  }, []);
-  
+    setLoading(true); // Establece el estado de carga como verdadero cuando comienza la solicitud
+
+    if (categoryId) {
+      getProductByCategory(categoryId)
+        .then((res) => {
+          setFilteredProducts(res); // Establece los productos filtrados en el estado
+          setLoading(false); // Establece el estado de carga como falso después de obtener los datos
+        })
+        .catch((error) => {
+          console.log("error", error);
+          setLoading(false); // Asegúrate de cambiar el estado de carga en caso de error
+        });
+    } else {
+      setFilteredProducts(products); // Establece los productos sin filtrar en el estado
+      setLoading(false); // Establece el estado de carga como falso
+    }
+  }, [categoryId]);
+
   const defaulttitulo = "no hay titulo";
-  
+
   return (
     <div>
       <h1>{props.greeting ? props.greeting : defaulttitulo}</h1>
