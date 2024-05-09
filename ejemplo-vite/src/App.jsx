@@ -1,18 +1,16 @@
-import Navbar from './components/Navbar/Navbar.jsx'
-import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx'
-import ItemCount from './components/ItemCount/ItemCount.jsx'
+
+import { Home } from './components/Pages/Home/Home.jsx'
 
 
 const App = () => {
 
+  
+  
   return  ( 
     <>
-    <Navbar/>
-    <ItemListContainer
-    greeting = "hola bienvenido"
-    bg_verde = {false}
-    />
-    <ItemCount/>
+
+      <Home/>
+
   </>
   )
 }

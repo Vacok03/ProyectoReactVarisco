@@ -1,0 +1,26 @@
+/* Item.modules.css */
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    width: 250px; /* Anchura fija para cada elemento */
+    min-height: 350px; /* Altura mínima para cada elemento */
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px; /* Añade un margen para separar los elementos */
+  }
+  
+  .item img {
+    max-width: 100%;
+    max-height: 70%; /* Establece una altura máxima para la imagen */
+    object-fit: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+  }
+  
+  .item > div {
+    flex: 1; /* Hace que el contenido se expanda para ocupar el espacio restante */
+    overflow: hidden; /* Evita que el contenido se desborde del contenedor */
+  }
+  

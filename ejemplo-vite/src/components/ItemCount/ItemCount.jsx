@@ -1,8 +1,16 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const ItemCount = () => {
 
     const [CantImtems, setCantItems] = useState (0)
+
+    useEffect(() =>  {
+        console.log("Se monto el componente")
+
+        return () => {
+            console.log("se desmonto el componente")
+        }
+    }, [] )
 
     const HandlleAdd = () => {
         setCantItems (CantImtems + 1)
